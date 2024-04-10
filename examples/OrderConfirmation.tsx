@@ -1,12 +1,7 @@
 import React from 'react';
-import { Hr, Link, Preview, Section, Text } from '@react-email/components';
-import { Greeting } from '../components/Greeting';
-import { OrderLineItems } from '../components/OrderLineItems';
-import { OrderTransactions } from '../components/OrderTransactions';
-import { PaymentTerms } from '../components/PaymentTerms';
-import { ShippingAddress } from '../components/ShippingAddress';
-import { Subtotals } from '../components/Subtotals';
-import { EmailContainer } from '../components/EmailContainer';
+import { Hr, Preview, Section, Text } from '@react-email/components';
+import { EmailContainer, Greeting, OrderLineItems, OrderTransactions, PaymentTerms, ShippingAddress, Subtotals } from 'react-email-shopify-liquid';
+import { OrderStatusLink } from '@/src';
 
 export const OrderConfirmation = () => (
     <EmailContainer>
@@ -18,7 +13,7 @@ export const OrderConfirmation = () => (
             </Text>
         </Section>
         <Section className="mt-6">
-            <Link href="{{ order.order_status_url }}" className="bg-black px-4 py-2 text-white text-sm">VIEW ORDER STATUS</Link>
+            <OrderStatusLink />
         </Section>
         <Hr className="border-black my-10"></Hr>
         <OrderLineItems />

@@ -23,17 +23,14 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "bin": {
-    "shopify-email": "./bin/index.js"
-  },
   "scripts": {
     "web:dev": "next dev",
     "web:build": "next build",
     "web:start": "next start",
     "lint": "next lint --fix",
     "build": "tsup",
-    "email:dev": "email dev --dir src/templates",
-    "email:export": "email export --dir src/templates",
+    "email:dev": "email dev --dir examples",
+    "email:export": "email export --dir examples",
     "email:decode": "tsx scripts/decode-emails.ts"
   },
   "dependencies": {
