@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "email:dev": "email dev",
+    "email:export": "email export && pnpm run email:decode",
+    "email:decode": "tsx scripts/decode-emails.ts"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@react-email/components": "0.0.16",
+    "react": "18.2.0",
+    "react-email": "2.1.1",
     "react-email-shopify-liquid": "*",
-    "react": "18.2.0"
+    "tsx": "^4.7.2"
   }
 }

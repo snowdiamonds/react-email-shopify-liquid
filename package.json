@@ -28,10 +28,7 @@
     "web:build": "next build",
     "web:start": "next start",
     "lint": "next lint --fix",
-    "build": "tsup",
-    "email:dev": "email dev --dir examples",
-    "email:export": "email export --dir examples",
-    "email:decode": "tsx scripts/decode-emails.ts"
+    "build": "tsup"
   },
   "dependencies": {
     "@react-email/components": "0.0.16",
@@ -41,7 +38,6 @@
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-email": "2.1.1",
     "tsx": "^4.7.2"
   },
   "devDependencies": {

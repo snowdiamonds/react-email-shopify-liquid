@@ -1,24 +1,28 @@
 import React from 'react';
 import { Hr, Preview, Section, Text } from '@react-email/components';
-import { EmailContainer, Greeting, OrderLineItems, OrderTransactions, OrderCancellationReason, ShippingAddress, Subtotals } from 'react-email-shopify-liquid';
+import { EmailContainer, Greeting, OrderLineItems, OrderStatusLink, OrderTransactions, PaymentTerms, ShippingAddress, Subtotals } from 'react-email-shopify-liquid';
 
-const OrderCanceled = () => (
+
+const OrderUpdated = () => (
     <EmailContainer>
-        <Preview>Order Canceled</Preview>
+        <Preview>Order Updated</Preview>
         <Section>
             <Greeting />
             <Text>
-                Order ({'{{ order.name }}'}) has been canceled.
+                Your order ({'{{ order.name }}'}) was updated.
             </Text>
-            <OrderCancellationReason />
+        </Section>
+        <Section className="mt-6">
+            <OrderStatusLink />
         </Section>
         <Hr className="border-black my-10"></Hr>
         <OrderLineItems />
         <Subtotals />
         <Hr className="border-black mt-10 mb-6"></Hr>
+        <PaymentTerms />
         <OrderTransactions />
         <ShippingAddress />
     </EmailContainer>
 );
 
-export default OrderCanceled;
+export default OrderUpdated;
