@@ -2,6 +2,11 @@
 
 > Create shopify notification emails with a combination of React and Liquid
 
+<p align="center">
+    <img src="https://github.com/snowdiamonds/react-email-shopify-liquid/assets/1103708/8a7fe588-c2e7-4a67-958a-02014efeb539" width="400" />    
+</p>
+
+
 ## Problem
 
 You are building a headless ecommerce experience using shopify. Probably with Hydrogen, Remix, NextJS, etc. 
