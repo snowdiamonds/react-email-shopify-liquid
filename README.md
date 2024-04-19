@@ -57,36 +57,43 @@ export const OrderConfirmation = () => (
 export default OrderConfirmation;
 ```
 
-4. Generation TBD
+4. Add the following script to your `package.json`
 
-5. Now head over to the shopify admin page
+```
+    "email:export": "email export && decode-entities"
+```
 
-6. Click on the `Settings` ⚙️ icon
+> This package includes a `decode-entities` bin script. React will encode quotes and etc that might be used within liquid expressions into html entites. Hence we need to decode those for liquid to render properly.
+
+5. Run the script `pnpm run email:export`. And look in the new folder `out` that was created.
+
+> This command will create a new directory `out` at the root level of your project. All of the generated html files for your email templates will be placed here. See react-email documentation for more information on the `email export` command.
+
+6. Now head over to the shopify admin page
+
+7. Click on the `Settings` ⚙️ icon
 
     <img width="336" alt="step-1" src="https://github.com/snowdiamonds/react-email-shopify-liquid/assets/1103708/185570ea-b17d-4914-963c-e523e83c2f4c">
 
-7. Select the `Notifications` menu item
+8. Select the `Notifications` menu item
 
     <img width="345" alt="step-2" src="https://github.com/snowdiamonds/react-email-shopify-liquid/assets/1103708/bcfea313-043e-45c7-8fae-3bd7698a45b4">
 
-8. Click on the `Customer Notifications` menu item
+9. Click on the `Customer Notifications` menu item
 
     <img width="809" alt="step-3" src="https://github.com/snowdiamonds/react-email-shopify-liquid/assets/1103708/959c95fb-cb73-47bc-b50c-db7c4e241b1c">
 
-9. Select the `Order Confirmation` notification
+10. Select the `Order Confirmation` notification
 
     <img width="785" alt="step-4" src="https://github.com/snowdiamonds/react-email-shopify-liquid/assets/1103708/ccb541f9-45ac-48a9-8a72-cf072a3e97d7">
 
-10. Hit the `Edit Code` button
+11. Hit the `Edit Code` button
 
     <img width="917" alt="step-5" src="https://github.com/snowdiamonds/react-email-shopify-liquid/assets/1103708/b0e334c9-b801-4ca3-a061-606cdddb86f7">
 
-11. Paste the generated html from `OrderConfirmation.html` into the textarea
+12. Paste the generated html from `OrderConfirmation.html` into the textarea
 
     <img width="827" alt="step-6" src="https://github.com/snowdiamonds/react-email-shopify-liquid/assets/1103708/61a23a35-d7cb-48c3-b345-e8e0b1a41759">
 
 
-12. Preview your changes and hit save.
-
-
-## Examples
+13. Preview your changes and hit save.

@@ -2,21 +2,24 @@
   "name": "react-email-shopify-liquid",
   "version": "0.1.0",
   "sideEffects": false,
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/src/index.js",
+  "module": "./dist/src/index.mjs",
+  "types": "./dist/src/index.d.ts",
+  "bin": {
+    "decode-entities": "./dist/bin/decode-entities.js"
+  },
   "files": [
     "dist/**"
   ],
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
+        "types": "./dist/src/index.d.mts",
+        "default": "./dist/src/index.mjs"
       },
       "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/src/index.d.ts",
+        "default": "./dist/src/index.js"
       }
     }
   },
@@ -28,7 +31,7 @@
     "web:build": "next build",
     "web:start": "next start",
     "lint": "next lint --fix",
-    "build": "tsup"
+    "build": "tsup src/index.ts bin/decode-entities.ts"
   },
   "dependencies": {
     "@react-email/components": "0.0.16",
