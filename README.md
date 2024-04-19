@@ -63,7 +63,37 @@ export default OrderConfirmation;
     "email:export": "email export && decode-entities"
 ```
 
-> This package includes a `decode-entities` bin script. React will encode quotes and etc that might be used within liquid expressions into html entites. Hence we need to decode those for liquid to render properly.
+> This package includes a simple `decode-entities` bin script. React will encode quotes and etc that might be used within liquid expressions into html entites. Hence we need to decode those for liquid to render properly.
+
+
+<details>
+
+<summary>Decode entities advanced usage</summary>
+
+1. If you have a more complex workflow, create your own script to handle decoding the html files.
+    
+    ```javascript
+    #!/usr/bin/env node
+    import { readFileSync, writeFileSync } from 'fs';
+    import path from 'path';
+    import { glob } from 'glob';
+    import { decode } from 'html-entities';
+
+    // React will encode quotes and etc that might be used within liquid expressions into entites.
+    // Hence we need to decode those for liquid to render properly
+    export const decodeEntities = async () => {
+        const generatedEmailPaths = glob.sync(path.join(process.cwd(), 'out', '**/*.html'))
+
+        for (const emailPath of generatedEmailPaths) {
+            const html = decode(readFileSync(emailPath, { 'encoding': 'utf-8' }));
+            writeFileSync(emailPath, html, { encoding: 'utf-8' });
+        }
+    };
+
+    decodeEntities();
+    ```
+</details>
+
 
 5. Run the script `pnpm run email:export`. And look in the new folder `out` that was created.
 
