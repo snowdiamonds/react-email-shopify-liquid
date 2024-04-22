@@ -19,9 +19,9 @@ You'll need to use Shopify's Liquid to build all of your email templates, which 
 
 We've build a set of components using React Email to help you create beautiful email templates. Helping consolidate the developer experience when creating headless shopify store.
 
-## Setup
+## Getting Started
 
-In your project directory:
+**In your project directory:**
 
 1. Install: `pnpm add react-email @react-email/components react-email-shopify-liquid -E`
 2. Create an `emails` folder at the top level of your project directory.
@@ -57,7 +57,7 @@ export const OrderConfirmation = () => (
 export default OrderConfirmation;
 ```
 
-4. Add the following script to your `package.json`
+4. Add the following script to your `package.json` which will generate the email template html files
 
 ```
     "email:export": "email export && decode-entities"
@@ -65,6 +65,7 @@ export default OrderConfirmation;
 
 > This package includes a simple `decode-entities` bin script. React will encode quotes and etc that might be used within liquid expressions into html entites. Hence we need to decode those for liquid to render properly.
 
+> Example: `Payment of {{ order.total_outstanding | money }} is due {{ due_date | date: format: &#x27;date&#x27; }}` will become `Payment of {{ order.total_outstanding | money }} is due {{ due_date | date: format: 'date' }}` once decoded.
 
 <details>
 
@@ -81,7 +82,7 @@ export default OrderConfirmation;
 
     // React will encode quotes and etc that might be used within liquid expressions into entites.
     // Hence we need to decode those for liquid to render properly
-    export const decodeEntities = async () => {
+    export const decodeEntities = () => {
         const generatedEmailPaths = glob.sync(path.join(process.cwd(), 'out', '**/*.html'))
 
         for (const emailPath of generatedEmailPaths) {
@@ -95,11 +96,13 @@ export default OrderConfirmation;
 </details>
 
 
-5. Run the script `pnpm run email:export`. And look in the new folder `out` that was created.
+5. Run the script `pnpm run email:export`. And look in the new folder `out` that was created. 
+    -  This command will create a new directory `out` at the root level of your project. All of the generated html files for your email templates will be placed here. See react-email documentation for more information on the `email export` command. The default source directory for your templates is `emails`.
 
-> This command will create a new directory `out` at the root level of your project. All of the generated html files for your email templates will be placed here. See react-email documentation for more information on the `email export` command.
 
-6. Now head over to the shopify admin page
+    <img width="629" alt="Screenshot 2024-04-22 at 11 43 30 AM" src="https://github.com/snowdiamonds/react-email-shopify-liquid/assets/1103708/2c905381-c372-494f-bff4-6697a4769ff5">
+
+6. **Let's preview the email template:** Head over to the shopify admin page.
 
 7. Click on the `Settings` ⚙️ icon
 
@@ -127,3 +130,7 @@ export default OrderConfirmation;
 
 
 13. Preview your changes and hit save.
+
+> Can I preview my email templates with react-email's `email:dev` script? Yes, but it won't be that helpful. Since the templates include liquid template syntax for retrieving like order details, line items, product information, we need these objects provided to us. Shopify's email template preview functionality will actually render your email template using the liquid template engine and provide all the relevant objects like `order`, `product`, etc. The `email:dev` script would just render the raw liquid syntax.
+
+14. That's it. Now, repeat for the rest of your email templates!
