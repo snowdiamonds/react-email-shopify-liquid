@@ -27,45 +27,45 @@ We've build a set of components using React Email to help you create beautiful e
 2. Create an `emails` folder at the top level of your project directory.
 3. Create a file named `OrderConfirmation.tsx` and paste the following:
 
-```jsx
-import React from 'react';
-import { Hr, Preview, Section, Text } from '@react-email/components';
-import { EmailContainer, Greeting, OrderLineItems, OrderStatusLink, OrderTransactions, PaymentTerms, ShippingAddress, Subtotals } from 'react-email-shopify-liquid';
+    ```jsx
+    import React from 'react';
+    import { Hr, Preview, Section, Text } from '@react-email/components';
+    import { EmailContainer, Greeting, OrderLineItems, OrderStatusLink, OrderTransactions, PaymentTerms, ShippingAddress, Subtotals } from 'react-email-shopify-liquid';
 
-export const OrderConfirmation = () => (
-    <EmailContainer>
-        <Preview>Order Confirmation</Preview>
-        <Section>
-            <Greeting />
-            <Text>
-                Thank you for placing your order ({'{{ order.name }}'}). As soon as your order ships, you will receive a separate shipping confirmation email with tracking information.
-            </Text>
-        </Section>
-        <Section className="mt-6">
-            <OrderStatusLink />
-        </Section>
-        <Hr className="border-black my-10"></Hr>
-        <OrderLineItems />
-        <Subtotals />
-        <Hr className="border-black my-10"></Hr>
-        <PaymentTerms />
-        <OrderTransactions />
-        <ShippingAddress />
-    </EmailContainer>
-);
+    export const OrderConfirmation = () => (
+        <EmailContainer>
+            <Preview>Order Confirmation</Preview>
+            <Section>
+                <Greeting />
+                <Text>
+                    Thank you for placing your order ({'{{ order.name }}'}). As soon as your order ships, you will receive a separate shipping confirmation email with tracking information.
+                </Text>
+            </Section>
+            <Section className="mt-6">
+                <OrderStatusLink />
+            </Section>
+            <Hr className="border-black my-10"></Hr>
+            <OrderLineItems />
+            <Subtotals />
+            <Hr className="border-black my-10"></Hr>
+            <PaymentTerms />
+            <OrderTransactions />
+            <ShippingAddress />
+        </EmailContainer>
+    );
 
-export default OrderConfirmation;
-```
+    export default OrderConfirmation;
+    ```
 
 4. Add the following script to your `package.json` which will generate the email template html files
 
-```
+    ```
     "email:export": "email export && decode-entities"
-```
+    ```
 
-> This package includes a simple `decode-entities` bin script. React will encode quotes and etc that might be used within liquid expressions into html entites. Hence we need to decode those for liquid to render properly.
+    > This package includes a simple `decode-entities` bin script. React will encode things like quotes and `>`, `<`, which might be used within liquid expressins into html entites. Hence we need to decode those for liquid to render properly.
 
-> Example: `Payment of {{ order.total_outstanding | money }} is due {{ due_date | date: format: &#x27;date&#x27; }}` will become `Payment of {{ order.total_outstanding | money }} is due {{ due_date | date: format: 'date' }}` once decoded.
+    > Example: `Payment of {{ order.total_outstanding | money }} is due {{ due_date | date: format: &#x27;date&#x27; }}` will become `Payment of {{ order.total_outstanding | money }} is due {{ due_date | date: format: 'date' }}` once decoded.
 
 <details>
 
@@ -131,6 +131,8 @@ export default OrderConfirmation;
 
 13. Preview your changes and hit save.
 
-> Can I preview my email templates with react-email's `email:dev` script? Yes, but it won't be that helpful. Since the templates include liquid template syntax for retrieving like order details, line items, product information, we need these objects provided to us. Shopify's email template preview functionality will actually render your email template using the liquid template engine and provide all the relevant objects like `order`, `product`, etc. The `email:dev` script would just render the raw liquid syntax.
+    > Can I preview my email templates with react-email's `email:dev` script? Yes, but it won't be that helpful. Since the templates include liquid template syntax for retrieving like order details, line items, product information, we need these objects provided to us. 
 
-14. That's it. Now, repeat for the rest of your email templates!
+    > Shopify's email template preview functionality will actually render your email template using the liquid template engine and provide all the relevant objects like `order`, `product`, etc. The `email:dev` script would just render the raw liquid syntax.
+
+14. **That's it.** Now, repeat for the rest of your email templates!
