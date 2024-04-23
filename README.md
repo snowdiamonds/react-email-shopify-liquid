@@ -7,6 +7,13 @@
 </p>
 
 
+## Table of Contents
+
+- [Getting Started](#getting-started)
+- [Example templates](examples/emails)
+- [Images](#images)
+- [Important Notes](#important-notes)
+
 ## Problem
 
 You are building a headless ecommerce experience using shopify. Probably with Hydrogen, Remix, NextJS, etc. 
@@ -25,7 +32,9 @@ We've build a set of components using React Email to help you create beautiful e
 
 1. Install: `pnpm add react-email @react-email/components react-email-shopify-liquid -E`
 2. Create an `emails` folder at the top level of your project directory.
-3. Create a file named `OrderConfirmation.tsx` and paste the following:
+3. Create a file named `OrderConfirmation.tsx` and paste the following: 
+
+    > This template is from [`examples/emails/OrderConfirmation.tsx`](examples/emails/OrderConfirmation.tsx):
 
     ```jsx
     import React from 'react';
@@ -135,4 +144,14 @@ We've build a set of components using React Email to help you create beautiful e
 
     > Shopify's email template preview functionality will actually render your email template using the liquid template engine and provide all the relevant objects like `order`, `product`, etc. The `email:dev` script would just render the raw liquid syntax.
 
-14. **That's it.** Now, repeat for the rest of your email templates!
+14. **That's it.** Now, repeat for the rest of your email templates! Head over to [`examples/emails`](examples/emails) to see more templates.
+
+
+## Images
+
+1. You should either upload images to shopify as files, aws s3, or any other type of CDN.
+2. Then use the CDN urls in the Image tags within the template.
+
+## Important Notes
+
+If you take a look at the default shopify email templates available in shopify admin, you'll see there is a lot of logic involved. Not every single piece of logic is ported over to this package. If any custom logic is required, just create your own component using our provided `Liquid` components. See the [example templates](examples/emails) for how this can be done.
