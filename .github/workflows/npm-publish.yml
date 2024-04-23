@@ -8,24 +8,29 @@ on:
     types: [created]
 
 jobs:
-  build:
+  build_and_publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: "Check out current repo"
+        uses: actions/checkout@v4
+      - name: "Setup pnpm package manager"
+        uses: pnpm/action-setup@v2
         with:
-          node-version: 16
-      - run: npm lint
-
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+          version: 8
+      - name: "Setup nodejs"
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: '18'
           registry-url: https://registry.npmjs.org/
-      - run: npm publish
+          cache: 'pnpm'
+      - name: "Install project npm packages" 
+        run: pnpm install
+      - name: "Lint and Test" 
+        run: pnpm run lint
+      - name: "pnpm publish"
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+
+
