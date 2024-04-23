@@ -1,6 +1,6 @@
 {
   "name": "react-email-shopify-liquid",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Create shopify notification emails with a combination of React and Liquid",
   "sideEffects": false,
   "main": "./dist/src/index.js",
