@@ -27,6 +27,8 @@ jobs:
         run: pnpm install
       - name: "Lint and Test" 
         run: pnpm run lint
+      - name: "Build" 
+        run: pnpm run build
       - name: "pnpm publish"
         run: pnpm publish --no-git-checks
         env:
