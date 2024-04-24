@@ -12,6 +12,7 @@
 - [Getting Started](#getting-started)
 - [Example templates](examples/emails)
 - [Images](#images)
+- [Custom Fonts](#custom-fonts)
 - [Important Notes](#important-notes)
 
 ## Problem
@@ -150,7 +151,24 @@ We've build a set of components using React Email to help you create beautiful e
 ## Images
 
 1. You should either upload images to shopify as files, aws s3, or any other type of CDN.
-2. Then use the CDN urls in the Image tags within the template.
+2. Then use the CDN urls in the react-email `Image` component within the template.
+
+## Custom Fonts
+
+1. You should either upload your custom font to shopify as files, aws s3, or any other type of CDN.
+2. Then use the CDN urls in the react-email `Font` component within the template.
+3. See the react-email docs on how to use the `Font` component.
+
+```jsx
+<Font fallbackFontFamily={['Helvetica']}
+    fontFamily="MyCustomFont"
+    webFont={{
+        url: 'https://cdn.shopify.com/s/files/.../my-custom-font.woff2',
+        format: 'woff2'
+    }}
+    fontWeight={400}
+    fontStyle="normal"/>
+```
 
 ## Important Notes
 

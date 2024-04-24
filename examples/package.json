@@ -15,6 +15,6 @@
     "@react-email/components": "0.0.16",
     "react": "18.2.0",
     "react-email": "2.1.1",
-    "react-email-shopify-liquid": "*"
+    "react-email-shopify-liquid": "^0.3.0"
   }
 }
