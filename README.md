@@ -147,15 +147,34 @@ We've build a set of components using React Email to help you create beautiful e
 
 14. **That's it.** Now, repeat for the rest of your email templates! Head over to [`examples/emails`](examples/emails) to see more templates.
 
+## Provided Example Templates
+
+| Template                                         |
+|--------------------------------------------------|
+| [`ContactCustomer.tsx`](examples/emails/)        |
+| [`DraftOrderInvoice.tsx`](examples/emails/)      |
+| [`OrderCanceled.tsx`](examples/emails/)          |
+| [`OrderConfirmation.tsx`](examples/emails/)      |
+| [`OrderInvoice.tsx`](examples/emails/)           |
+| [`OrderPaymentReceipt.tsx`](examples/emails/)    |
+| [`OrderRefund.tsx`](examples/emails/)            |
+| [`OrderUpdated.tsx`](examples/emails/)           |
+| [`PaymentError.tsx`](examples/emails/)           |
+| [`PaymentReminder.tsx`](examples/emails/)        |
+| [`PaymentSuccess.tsx`](examples/emails/)         |
+| [`ShippingConfirmation.tsx`](examples/emails/)   |
+| [`ShippingDelivered.tsx`](examples/emails/)      |
+| [`ShippingOutForDelivery.tsx`](examples/emails/) |
+| [`ShippingUpdated.tsx`](examples/emails/)        |
 
 ## Images
 
 1. You should either upload images to shopify as files, aws s3, or any other type of CDN.
 2. Then use the CDN urls in the react-email `Image` component within the template.
 
-```jsx
-    <Img src="https://some.cdn.com/image.png" width="76"/>
-```
+    ```jsx
+        <Img src="https://some.cdn.com/image.png" width="76"/>
+    ```
 
 ## Custom Fonts
 
@@ -163,16 +182,16 @@ We've build a set of components using React Email to help you create beautiful e
 2. Then use the CDN urls in the react-email `Font` component within the template.
 3. See the react-email docs on how to use the `Font` component.
 
-```jsx
-<Font fallbackFontFamily={['Helvetica']}
-    fontFamily="MyCustomFont"
-    webFont={{
-        url: 'https://cdn.shopify.com/s/files/.../my-custom-font.woff2',
-        format: 'woff2'
-    }}
-    fontWeight={400}
-    fontStyle="normal"/>
-```
+    ```jsx
+    <Font fallbackFontFamily={['Helvetica']}
+        fontFamily="MyCustomFont"
+        webFont={{
+            url: 'https://cdn.shopify.com/s/files/.../my-custom-font.woff2',
+            format: 'woff2'
+        }}
+        fontWeight={400}
+        fontStyle="normal"/>
+    ```
 
 ## Important Notes
 
