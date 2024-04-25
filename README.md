@@ -19,9 +19,9 @@
 
 You are building a headless ecommerce experience using shopify. Probably with Hydrogen, Remix, NextJS, etc. 
 
-You've built a set of composoble components using React, however there is one critical piece that is missing: Email Notifications. Emails for Order confirmation, shipping, etc.
+You've built a set of composable components using React, however there is one critical piece that is missing: Email Notifications. Emails for Order confirmation, shipping, etc.
 
-You'll need to use Shopify's Liquid to build all of your email templates, which is a completely different developer experience than React. 
+You'll need to use Shopify's `Liquid` to build all of your email templates, which is a completely different developer experience than React. 
 
 ## This Solution
 
