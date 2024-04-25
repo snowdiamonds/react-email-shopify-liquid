@@ -153,6 +153,10 @@ We've build a set of components using React Email to help you create beautiful e
 1. You should either upload images to shopify as files, aws s3, or any other type of CDN.
 2. Then use the CDN urls in the react-email `Image` component within the template.
 
+```jsx
+    <Img src="https://some.cdn.com/image.png" width="76"/>
+```
+
 ## Custom Fonts
 
 1. You should either upload your custom font to shopify as files, aws s3, or any other type of CDN.
